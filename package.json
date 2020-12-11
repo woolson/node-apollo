@@ -1,0 +1,49 @@
+{
+  "name": "@woolson/node-apollo",
+  "version": "1.1.1",
+  "description": "Use Apollo in NodeJS",
+  "directories": {
+    "lib": "lib"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "ts-node test/index.ts --inspect-brk",
+    "lint": "eslint --ext .ts,.js lib/",
+    "prepublish": "npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "commitlint --env HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-angular"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-angular": "^8.3.4",
+    "@types/node": "^13.7.7",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "prettier": "^2.0.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^3.8.3"
+  },
+  "author": "Woolson Lee",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.19",
+    "webpack-merge": "^5.3.0"
+  }
+}
